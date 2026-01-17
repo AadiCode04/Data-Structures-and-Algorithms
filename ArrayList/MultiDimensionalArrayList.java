@@ -1,0 +1,32 @@
+import java.util.ArrayList;
+
+public class MultiDimensionalArrayList {
+    
+    public static void main(String[] args) {
+        
+        ArrayList<ArrayList<Integer>> mainList = new ArrayList<>();
+
+        
+        ArrayList<Integer> newList1 = new ArrayList<>();
+        newList1.add(1) ;
+        newList1.add(2);
+        
+        mainList.add(newList1);
+
+        ArrayList<Integer> newList2 = new ArrayList<>();
+        newList2.add(3);
+        newList2.add(4);
+
+        mainList.add(newList2);
+
+        // System.out.println(mainList);
+
+        for (int i = 0; i < mainList.size(); i++) {
+            ArrayList<Integer> currList = mainList.get(i);
+            for (int j = 0; j < currList.size(); j++) {
+                System.out.print(currList.get(j) + " ");
+            }
+            System.out.println();
+        }
+    }
+}
