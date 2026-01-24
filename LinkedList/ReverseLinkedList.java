@@ -1,6 +1,6 @@
 package LinkedList;
 
-public class LinkedList {
+public class ReverseLinkedList {
 
     public static class Node {
         int data;
@@ -124,44 +124,41 @@ public class LinkedList {
         System.out.println("Null");
     }
 
-    public int itrSearch(int key){
-        Node temp = head ;
-        int i = 0 ;
+    public void reverse(){
+        Node prev = null;   
+        Node  curr = tail= head ;
+        Node next ;
 
-        while (temp != null) {
-            if( temp.data == key){
-                return i;
-            }
-
-            temp = temp.next;
-            i++;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev ;
+            prev = curr ;
+            curr = next ;
         }
-        return -1;
+        head = prev ;
 
     }
 
+  
+
     public static void main(String[] args) {
-        LinkedList ll = new LinkedList();
+        ReverseLinkedList ll = new ReverseLinkedList();
         ll.addFirst(1);
         ll.addFirst(2);
+        ll.addFirst(3);
+        ll.addFirst(4);
         ll.addLast(20);
         ll.addLast(30);
-        ll.print();
+    
         ll.add(2, 100);
 
         ll.print();
-        System.out.println();
         
+        ll.reverse();
+        ll.print();    
         
-        System.out.println(ll.removeFirst());
-        ll.print();
 
-        ll.removeLast();
-        System.out.println(ll.removeLast());
-        ll.print();
-
-        System.out.println(ll.itrSearch(4));
-        System.out.println(ll.itrSearch(2));
+        
         
     }
 }
